@@ -291,7 +291,6 @@ public class ViewController {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		List<Map<String, Object>> ret = usersService1.getEvents();
-		System.out.print("Hello World");
 		if (ret.size() > 0) {
 			map.put("status", "200");
 			map.put("message", "Data found");
