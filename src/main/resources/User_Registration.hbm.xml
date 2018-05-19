@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.keylesson.EntityClasses.User_Registration"
+		table="user_registration" dynamic-update="true">
+
+		<id name="ID" type="int">
+			<column name="ID" />
+		</id>
+
+		<property name="firstName" type="string">
+			<column name="first_name" />
+		</property>
+
+		<property name="lastName" type="string">
+			<column name="last_name" />
+		</property>
+
+		<property name="passWord" type="string">
+			<column name="password" />
+		</property>
+
+		<property name="enable" type="boolean">
+			<column name="enable" />
+		</property>
+
+		<property name="email" type="string">
+			<column name="email" />
+		</property>
+
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+
+		<property name="address1" type="string">
+			<column name="address1" />
+		</property>
+
+		<property name="address2" type="string">
+			<column name="address2" />
+		</property>
+
+		<property name="type" type="string">
+			<column name="type" />
+		</property>
+
+		<property name="permanentUserType" type="string">
+			<column name="permanent_user_type" />
+		</property>
+
+		<property name="createdAt" type="timestamp">
+			<column name="created_at" />
+		</property>
+
+		<property name="updatedAt" type="timestamp">
+			<column name="updated_at" />
+		</property>
+
+		<set name="role" table="role" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="ID" />
+			</key>
+			<one-to-many class="com.keylesson.EntityClasses.Role" />
+		</set>
+
+		<set name="room" table="room" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="ID" />
+			</key>
+			<one-to-many class="com.keylesson.EntityClasses.Room" />
+		</set>
+
+
+	</class>
+</hibernate-mapping>

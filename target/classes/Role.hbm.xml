@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.keylesson.EntityClasses.Role" table="role"
+		dynamic-update="true">
+
+		<id name="roleID" type="int">
+			<column name="role_ID" />
+		</id>
+
+		<property name="role" type="string">
+			<column name="role" />
+		</property>
+
+		<property name="createdAt" type="timestamp">
+			<column name="created_at" />
+		</property>
+
+		<property name="updatedAt" type="timestamp">
+			<column name="updated_at" />
+		</property>
+
+		<many-to-one name="user_registration"
+			class="com.keylesson.EntityClasses.User_Registration" fetch="select">
+			<column name="user_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

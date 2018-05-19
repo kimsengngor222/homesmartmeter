@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.keylesson.EntityClasses.Board" table="board"
+		dynamic-update="true">
+		<id name="MAC" type="string">
+			<column name="MAC" />
+		</id>
+
+		<property name="description" type="string">
+			<column name="description" />
+		</property>
+
+		<property name="remark" type="string">
+			<column name="remark" />
+		</property>
+
+		<property name="createdAt" type="timestamp">
+			<column name="created_at" />
+		</property>
+
+		<property name="updatedAt" type="timestamp">
+			<column name="updated_at" />
+		</property>
+
+		<many-to-one name="room" class="com.keylesson.EntityClasses.Room"
+			fetch="select">
+			<column name="room_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

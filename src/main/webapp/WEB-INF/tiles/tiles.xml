@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/template/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="navigation" value="/WEB-INF/views/layout/navigation.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/layout/menu.jsp" />
+		<put-attribute name="sidebar" value="/WEB-INF/views/layout/sidebar.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+
+	<definition name="dashboard" extends="base.definition">
+		<put-attribute name="title" value="Project detail" />
+		<put-attribute name="body" value="/WEB-INF/views/view/dashboard.jsp" />
+	</definition>
+
+	<definition name="source" extends="base.definition">
+		<put-attribute name="title" value="Project detail" />
+		<put-attribute name="body" value="/WEB-INF/views/view/source.jsp" />
+	</definition>
+
+	<definition name="event" extends="base.definition">
+		<put-attribute name="title" value="Project detail" />
+		<put-attribute name="body" value="/WEB-INF/views/view/event.jsp" />
+	</definition>
+
+	<definition name="export" extends="base.definition">
+		<put-attribute name="title" value="Project detail" />
+		<put-attribute name="body" value="/WEB-INF/views/view/export.jsp" />
+	</definition>
+
+
+</tiles-definitions>
