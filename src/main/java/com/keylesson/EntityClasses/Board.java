@@ -1,7 +1,5 @@
 package com.keylesson.EntityClasses;
-
 import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -15,8 +13,6 @@ public class Board {
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
 	private Room room;
-
-	
 
 	public int getRoomID() {
 		return roomID;
@@ -65,12 +61,6 @@ public class Board {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
-	
-
-
-
-	
 
 	public Room getRoom() {
 		return room;

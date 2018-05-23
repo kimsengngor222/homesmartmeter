@@ -27,33 +27,13 @@
   	<spring:url value="/resources/public/js/main.js" var="mainJS"/>
   	<spring:url value="/resources/Bootstrap/css/bootstrap.min.css" var="bootstrapMinCss"/>
   	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  	
- <!-- 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	
-  	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-  	
+  	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">	
   	<link href="${uikitMinCSS}" rel="stylesheet"/>
   	<link href="${uikitCSS}" rel="stylesheet"/>
   	<link href="${fontawesome}" rel="stylesheet"/>
   	<link href="${customCSS}" rel="stylesheet"/>
-  	
-  <!-- 	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> -->
-  	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-<!-- <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCmHQz3u4gSoKA-9p1tlEtf4sx5RqHTMbE",
-    authDomain: "homesmart-292b5.firebaseapp.com",
-    databaseURL: "https://homesmart-292b5.firebaseio.com",
-    projectId: "homesmart-292b5",
-    storageBucket: "",
-    messagingSenderId: "621505529007"
-  };
-  firebase.initializeApp(config);
-</script> -->
-  	
 </head>
 
 <body>
@@ -103,51 +83,6 @@
             
             </div>
 		</div>
-		
-<!--  	<script>
-   $( function() {
-    var dateFormat = "mm/dd/yy",
-      from = $( "#export_from" )
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 1
-        })
-        .on( "change", function() {
-        	 var date = Date.parse($(this).val());
-        	 if (date > Date.now()){
-                 alert('Please select another date');
-                 $(this).val('');
-             }
-          to.datepicker( "option", "minDate", getDate( this ) );
-        }),
-      to = $( "#export_until" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1
-      })
-      .on( "change", function() {
-    	  var date = Date.parse($(this).val());
-     	 if (date > Date.now()){
-              alert('Please select another date');
-              $(this).val('');
-          }
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
- 
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
- 
-      return date;
-    }
-  } ); 
-   </script>  -->
-		 
 		<script src="${uikitJS}"></script>
 		<script src="${fileSaverJS}"></script>
 		<script src="${xlsxJS}"></script>
@@ -155,6 +90,7 @@
 		<script src="${jspdfAutoTableJS}"></script>
 		<script src="${tableExportJS}"></script>
 		<script src="${mainJS}"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		
 	</body>
 </html>

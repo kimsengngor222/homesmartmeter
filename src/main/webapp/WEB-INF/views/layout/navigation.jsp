@@ -21,15 +21,15 @@
 	                    <div class="header-right uk-flex-inline uk-flex-left uk-flex-center">
 	                        <div class="navigation-wrapper uk-flex-1 uk-flex-inline uk-flex-right">
 	
-	                           <!--  <div class="header-profile">
-	                                <div class="avatar">
-	                                    <a href="" class="profile_pic">
-	                                        <img src="http://www.newsshare.in/wp-content/uploads/2017/04/Miniclip-8-Ball-Pool-Avatar-11.png" alt="">
+	                             <div class="header-profile">
+	                                <div class="logo-escott">
+	                                    <a href="#" class="profile_pic">
+	                                        <img src="resources/Bootstrap/img/Escott.png" alt="">
 	                                    </a>
 	                                </div>
 	                            </div>
 	
- -->	                        </div>
+ 	                        </div>
 	
 	                        <div class="settings-dropdown">
 	                          <!--   <div class="icon-wrapper">

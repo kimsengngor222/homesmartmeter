@@ -180,7 +180,7 @@
 										than<i class="gt-icon"></i></label>
 									<div class="uk-inline uk-flex-1">
 										<span class="text-form-icon uk-form-icon uk-form-icon-flip">kwh</span>
-										<input type="number" onkeypress="return event.charCode >= 48"
+										<input type="number" onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true"
 											name="electric_gt" class="uk-input" placeholder=""
 											id="electricc" min="0">
 									</div>
@@ -191,7 +191,7 @@
 										class="gt-icon"></i></label>
 									<div class="uk-inline uk-flex-1">
 										<span class="text-form-icon uk-form-icon uk-form-icon-flip">m<sup>3</sup></span>
-										<input type="number" onkeypress="return event.charCode >= 48"
+										<input type="number" onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true"
 											name="water_gt" class="uk-input" placeholder="" id="waterr" min="0">
 									</div>
 								</div>
@@ -381,7 +381,7 @@
 									for="board_locationid3"> Location ID:</label>
 								<div class="uk-form-controls ">
 									<input type="number" name="boardlocid"
-										onkeypress="return event.charCode >= 48" min="1"
+										onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true" min="1"
 										class="uk-input " id="board_locationid3">
 								</div>
 							</div>
@@ -421,7 +421,7 @@
 								<label class="uk-form-label uk-padding-small"
 									for="board_regionid2"> Region ID:</label>
 								<div class="uk-form-controls">
-									<input type="number" onkeypress="return event.charCode >= 48"
+									<input type="number" onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true" 
 										min="1" name="boardregionid" class="uk-input"
 										id="board_regionid2">
 								</div>
@@ -470,7 +470,7 @@
 								<label class="uk-form-label uk-padding-small"
 									for="board_roomid1"> Room ID:</label>
 								<div class="uk-form-controls">
-									<input type="number" onkeypress="return event.charCode >= 48"
+									<input type="number" onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true" 
 										min="1" name="roomid" class="uk-input" id="board_roomid1">
 								</div>
 							</div>

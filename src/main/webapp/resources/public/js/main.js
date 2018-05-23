@@ -64,7 +64,7 @@ if (!String.prototype.format) {
 			+ '</button>'
 			+ '</li>'
 			+ '<li class="action-item">'
-			+ '<button class="action-btn delete-btn" id="del({4})" name=delete>'
+			+ '<button class=" modal hide action-btn delete-btn" data-backdrop="static" data-keyboard="false" id="del({4})" name=delete>'
 			+ '<img src="resources/public/img/icons/svg/050-delete-button.svg" class="action-icon"/>'
 			+ '</button>'
 			+ '</li>'
@@ -80,7 +80,7 @@ if (!String.prototype.format) {
 			+ 'Electricity Alert: '
 			+ '</span>'
 			+ '<span class="usage_total">'
-			+ '<input class="Alert" type="number" readonly name="editElectric" onkeypress="return event.charCode >= 48" min="0" value="'
+			+ '<input class="Alert" type="number" readonly onkeydown="javascript: return event.keyCode == 69 ? false : true" name="editElectric" onkeypress="return event.charCode >= 48" min="0" value="'
 			+ '{1}'
 			+ '"> <i class="unit">kwh</i>'
 			+ '</span>'
@@ -100,7 +100,7 @@ if (!String.prototype.format) {
 			+ 'Water Alert: '
 			+ '</span>'
 			+ '<span class="usage_total">'
-			+ '<input class="Alert" type="number" readonly name="editWater"  min="0" value="'
+			+ '<input class="Alert" type="number" readonly onkeydown="javascript: return event.keyCode == 69 ? false : true" onkeypress="return event.charCode >= 48" name="editWater"  min="0" value="'
 			+ '{2}'
 			+ '"> <i class="unit">m<sup>3</sup></i>'
 			+ '</span>'
@@ -460,7 +460,6 @@ if (!String.prototype.format) {
 							email_adress : {
 								required : "Please fill out email address",
 								email : "Please enter a valid email address",
-
 							}
 						},
 						submitHandler : function(form) {
@@ -469,7 +468,6 @@ if (!String.prototype.format) {
 							var room = $("#event_room").val();
 							var messages = $("#messagese").val();
 							var email = $("#emaill").val();
-
 							var data = {
 								'water' : water,
 								'power' : power,
@@ -883,7 +881,7 @@ $(document)
 					swal({
 
 						title : "Are you sure?",
-
+						closeOnClickOutside: false,
 						icon : "warning",
 						buttons : [ 'No, cancel it!', 'Yes, I am sure!' ],
 						dangerMode : true,
@@ -943,11 +941,7 @@ $(document)
 																			}
 																		});
 															});
-										} else {
-											swal("Cancelled",
-													"The Card is not deleted!",
-													"error");
-										}
+										} 
 									});
 				});
 
@@ -997,5 +991,35 @@ $(function() {
 		return date;
 	}
 });
-
-
+$('input[name=boardlocname]').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z 0-9]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+$('input[name=boardregionname]').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z 0-9]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+$('input[name=roomname]').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z 0-9]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});
+$('input[name=boardmac]').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z0-9-]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault();
+       return false;
+    }
+});

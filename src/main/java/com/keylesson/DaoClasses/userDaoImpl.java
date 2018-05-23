@@ -9,7 +9,6 @@ import java.util.logging.Level;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-//import rg.hibernate.SharedSessionContract;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
@@ -39,10 +38,6 @@ public class userDaoImpl implements usersDao {
 			trns = session.beginTransaction();
 			Query qury = session
 					.createQuery("Select D.room.region.ID, D.room.region.name , D.room.ID, D.room.name ,Sum(D.power)/1000, Sum(D.water)/1000, D.dmy from Daily_Usage D Group by(D.room.ID)");
-			/*
-			 * String queryString2 = " from Room where ID=" + id; Query query2 =
-			 * session.createQuery(queryString2);
-			 */
 			@SuppressWarnings("unchecked")
 			List<Object[]> q = qury.list();
 			for (Object b[] : q) {
@@ -65,7 +60,6 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
 			}
 
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
@@ -98,7 +92,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 		} finally {
@@ -123,7 +117,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 			return user;
@@ -160,7 +154,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 		} finally {
@@ -195,7 +189,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 
@@ -234,7 +228,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+			
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 
@@ -272,7 +266,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 
@@ -298,8 +292,6 @@ public class userDaoImpl implements usersDao {
 		try {
 			trns = session.beginTransaction();
 			String queryString = "from Daily_Usage where room.ID=:id  and dmy>=:export_from and dmy<=:export_until";
-			// String queryString=
-			// "from Daily_Usage where room.ID=:id and dmy between :export_from and :export_until";
 			String queryString2 = "from Room where ID=" + id;
 			Query query = session.createQuery(queryString);
 			Query query2 = session.createQuery(queryString2);
@@ -324,7 +316,6 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 
@@ -367,7 +358,6 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 			return 0;
@@ -409,7 +399,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 
@@ -456,7 +446,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+			
 			}
 
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
@@ -498,7 +488,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 			return 0;
@@ -536,7 +526,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 			return 0;
@@ -570,7 +560,7 @@ public class userDaoImpl implements usersDao {
 		} catch (RuntimeException e) {
 			if (trns != null) {
 				trns.rollback();
-				// throw e;
+				
 			}
 			LOGGER.log(Level.SEVERE, "Exception occured", e);
 			return 0;
