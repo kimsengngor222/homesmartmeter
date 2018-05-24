@@ -17,8 +17,8 @@ if (!String.prototype.format) {
 	$("#dashboardMenu,#sourceMenu,#eventMenu,#exportMenu,#boardRegistration")
 			.click(function() {
 				var idli = $(this).attr("id");
+				console.log("Click",idli);
 				window.sessionStorage.setItem('id', idli);
-
 			});
 
 	var dashboard_card_template = '<div class="card-box">'
@@ -80,7 +80,7 @@ if (!String.prototype.format) {
 			+ 'Electricity Alert: '
 			+ '</span>'
 			+ '<span class="usage_total">'
-			+ '<input class="Alert" type="number" readonly onkeydown="javascript: return event.keyCode == 69 ? false : true" name="editElectric" onkeypress="return event.charCode >= 48" min="0" value="'
+			+ '<input class="Alert" type="number" min="0" readonly onkeydown="javascript: return event.keyCode == 69 ? false : true" name="editElectric" onkeypress="return event.charCode >= 48" value="'
 			+ '{1}'
 			+ '"> <i class="unit">kwh</i>'
 			+ '</span>'
@@ -90,7 +90,7 @@ if (!String.prototype.format) {
 			+ 'ID Alert: '
 			+ '</span>'
 			+ '<span class="usage_total">'
-			+ '<input class="Alert" type="number" readonly name="idd" onkeypress="return event.charCode >= 48" min="0" value="'
+			+ '<input class="Alert" type="number" min="0" readonly name="idd" onkeypress="return event.charCode >= 48"  value="'
 			+ '{4}'
 			+ '"> <i class="unit">kwh</i>'
 			+ '</span>'
@@ -100,7 +100,7 @@ if (!String.prototype.format) {
 			+ 'Water Alert: '
 			+ '</span>'
 			+ '<span class="usage_total">'
-			+ '<input class="Alert" type="number" readonly onkeydown="javascript: return event.keyCode == 69 ? false : true" onkeypress="return event.charCode >= 48" name="editWater"  min="0" value="'
+			+ '<input class="Alert" type="number" min="0" readonly onkeydown="javascript: return event.keyCode == 69 ? false : true" onkeypress="return event.charCode >= 48" name="editWater"   value="'
 			+ '{2}'
 			+ '"> <i class="unit">m<sup>3</sup></i>'
 			+ '</span>'
@@ -231,15 +231,18 @@ if (!String.prototype.format) {
 				type : 'GET',
 				success : function(response) {
 					data = response.data;
+					console.log("dataaaa",data);
 					$('#eventListDiv').html("");
+					console.log("SSSS",data.length);
 					for (var i = 0; i < data.length; i++) {
-
+							console.log("A");
 						$('#eventListDiv').append(
 								event_card_template.format(data[i].roomName,
 										data[i].over_usage_power,
 										data[i].over_usage_water,
 										data[i].email, data[i].roomID));
 					}
+					
 
 					$('.loading-spinner').removeClass('active');
 				},
@@ -432,14 +435,7 @@ if (!String.prototype.format) {
 		});
 
 	});
-	/*
-	 * $('#emaill') .on( 'keypress', function() { var re =
-	 * /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/;
-	 * var email = $(this).val(); var result = re.test(email.toLowerCase()); if
-	 * (!result) { $(this).addClass('uk-form-danger');
-	 *  } else { $(this).removeClass('uk-form-danger');
-	 *  } });
-	 */
+	
 
 	$("#boardsubmit")
 			.validate(
@@ -703,7 +699,7 @@ if (!String.prototype.format) {
 
 				},
 				error : function(error) {
-					swal('Cannot Added', '', 'error');
+					swal('Cannot Updated', '', 'error');
 					$('.loading-spinner').removeClass('active');
 				}
 			});

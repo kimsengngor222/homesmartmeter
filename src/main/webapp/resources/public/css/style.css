@@ -686,8 +686,9 @@ body {
     font-size: 15px;
     font-family: 'Julius Sans One', sans-serif;
 }
-#boardlocation,#boardregion,#boardroom,#boardboard .error{
+#boardlocation,#boardregion,#boardroom,#boardboard,#board_mac .error{
 	color: red;
+	text-align:center;
 }
 div .input-item{
 	border-radius:10px;
@@ -695,6 +696,7 @@ div .input-item{
 
 #boardsubmit .error{
 	color:red;
+	text-align:center;
 }
 input[type=text],input[type=number],input[type=email]{
 	border-radius:10px; 

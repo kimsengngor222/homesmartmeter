@@ -8818,6 +8818,7 @@ td.uk-text-break {
    Component: Padding
  ========================================================================== */
 .uk-padding {
+	font-weight:bold;
   padding: 30px;
 }
 /* Desktop and bigger */

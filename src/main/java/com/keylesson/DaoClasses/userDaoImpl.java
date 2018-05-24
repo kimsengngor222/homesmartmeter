@@ -379,7 +379,7 @@ public class userDaoImpl implements usersDao {
 
 		try {
 			trns = session.beginTransaction();
-			String queryString = "from Data where overUsageWater != 'NULL' and overUsagePower != 'NULL'";
+			String queryString = "from Data";
 			Query query = session.createQuery(queryString);
 			data = (ArrayList) query.list();
 			for (int i = 0; i < data.size(); i++) {
@@ -394,6 +394,7 @@ public class userDaoImpl implements usersDao {
 				map.put("over_usage_water", data.get(i).getOverUsageWater());
 				map.put("email", data.get(i).getEmail());
 				events.add(map);
+				System.out.println("asdasdasdsss"+events);
 			}
 			trns.commit();
 		} catch (RuntimeException e) {

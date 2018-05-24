@@ -182,7 +182,7 @@
 										<span class="text-form-icon uk-form-icon uk-form-icon-flip">kwh</span>
 										<input type="number" onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true"
 											name="electric_gt" class="uk-input" placeholder=""
-											id="electricc" min="0">
+											id="electricc" >
 									</div>
 								</div>
 								<div class="uk-padding-small uk-flex uk-flex-middle">
@@ -192,7 +192,7 @@
 									<div class="uk-inline uk-flex-1">
 										<span class="text-form-icon uk-form-icon uk-form-icon-flip">m<sup>3</sup></span>
 										<input type="number" onkeypress="return event.charCode >= 48"  onkeydown="javascript: return event.keyCode == 69 ? false : true"
-											name="water_gt" class="uk-input" placeholder="" id="waterr" min="0">
+											name="water_gt" class="uk-input" placeholder="" id="waterr" >
 									</div>
 								</div>
 								<div class="uk-padding-small uk-flex ">
