@@ -114,11 +114,10 @@ if (!String.prototype.format) {
 			+ '{3}' + '"> </span>' + '</div>' + '</form>' + '</div>' + '</div>';
 
 	var region_div_template = '<div class="card-box__outter uk-flex uk-flex-wrap uk-flex-wrap-around" id="{0}"></div>';
-
-	$(window).on(
-			'load',
-			function() {
-
+	
+	/*$(window).on(
+			'load',*/
+	var loadDashBoard=function() {
 				$('.loading-spinner').addClass('active');
 				$.ajax({
 					url : 'dash',
@@ -127,21 +126,24 @@ if (!String.prototype.format) {
 					success : function(response) {
 						$('.loading-spinner').removeClass('active');
 						var data = response.data;
+						console.log(data);
 
 						for (var i = 0; i < data.length; i++) {
 							var rendered_card = dashboard_card_template.format(
 									data[i].region_name, data[i].power,
 									data[i].water);
-							$('#dashboardDiv').append(rendered_card);
+							//$('#dashboardDiv').append(rendered_card);
+							document.getElementById('dashboardDiv').innerHTML=rendered_card;
 						}
+						
 					},
 					error : function(error) {
 						alert('Error loading dashboard data.');
 						$('.loading-spinner').removeClass('active');
 					}
 				});
-
-			});
+		
+			};
 
 	var loadSourceData = function() {
 		if (true) {
@@ -252,7 +254,11 @@ if (!String.prototype.format) {
 			});
 		}
 	}
-
+	$('#dashboardMenu').on('click', function(e) {
+		e.preventDefault();
+		loadDashBoard();
+	});
+	
 	$('#sourceMenu').on('click', function(e) {
 		e.preventDefault();
 		loadSourceData();
@@ -271,6 +277,7 @@ if (!String.prototype.format) {
 		e.preventDefault();
 		getLocation();
 	});
+	
 
 	$('.select_location')
 			.on(
@@ -542,7 +549,6 @@ if (!String.prototype.format) {
 		submitHandler : function(form) {
 			var locationID = $('#board_locationid3').val();
 			var locationName = $('#board_locationname3').val();
-
 			$.ajax({
 				url : 'boardlocation',
 				tranditional : true,
@@ -553,13 +559,14 @@ if (!String.prototype.format) {
 
 				},
 				success : function(response) {
+					console.log(response);
 					if (response.status === '200') {
 						swal({
 							title : "Successfully Registration",
 							icon : "success"
-						}).then(function() {
+						})/*.then(function() {
 							window.location.reload(true);
-						});
+						});*/
 					} else {
 						swal(response.message, '', 'error');
 					}
@@ -574,8 +581,9 @@ if (!String.prototype.format) {
 					$('.loading-spinner').removeClass('active');
 				}
 			});
-
 		}
+
+		
 	});
 	$("#boardregion").validate({
 		rules : {
@@ -590,7 +598,6 @@ if (!String.prototype.format) {
 			var regionID = $('#board_regionid2').val();
 			var regionName = $('#board_regionname2').val();
 			var locationID = $('#board_location2').val();
-
 			$.ajax({
 				url : 'boardregion',
 				tranditional : true,
@@ -602,7 +609,7 @@ if (!String.prototype.format) {
 				},
 				success : function(response) {
 					if (response.status === '200') {
-						swal('Successfully', '', 'success');
+						swal('Successfully Registration', '', 'success');
 					} else {
 						swal(response.message, '', 'error');
 					}
@@ -616,7 +623,8 @@ if (!String.prototype.format) {
 					$('.loading-spinner').removeClass('active');
 				}
 			});
-		}
+			}
+		
 	});
 
 	$("#boardroom").validate({
@@ -632,7 +640,6 @@ if (!String.prototype.format) {
 			var regionID = $('#board_region1').val();
 			var roomID = $('#board_roomid1').val();
 			var roomName = $('#board_roomname1').val();
-
 			$.ajax({
 				url : 'boardroom',
 				tranditional : true,
@@ -658,8 +665,8 @@ if (!String.prototype.format) {
 					$('.loading-spinner').removeClass('active');
 				}
 			});
-
-		}
+			}
+		
 	})
 
 	$("#boardboard").validate({
@@ -678,7 +685,7 @@ if (!String.prototype.format) {
 		submitHandler : function(form) {
 			var id = $('#board_room').val();
 			var MAC = $('#board_mac').val();
-
+			
 			$.ajax({
 				url : 'boardboard',
 				tranditional : true,
@@ -703,7 +710,7 @@ if (!String.prototype.format) {
 					$('.loading-spinner').removeClass('active');
 				}
 			});
-
+			
 		}
 	})
 
