@@ -1877,6 +1877,7 @@ select.uk-form-width-xsmall {
   transition: 0.1s ease-in-out;
   -webkit-transition-property: color, background-color, border-color;
   transition-property: color, background-color, border-color;
+  border-radius:10px;
 }
 .uk-button:not(:disabled) {
   cursor: pointer;

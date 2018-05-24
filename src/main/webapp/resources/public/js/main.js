@@ -670,12 +670,14 @@ if (!String.prototype.format) {
 		rules : {
 			boardmac : {
 				required : true,
-				minlength : 8
+				minlength : 17
 			}
 		},
 		messages : {
+			boardmac:{
 			required : "Please fill out your MAC Address",
-			minlength : "Your MAC must be at lease 8 character long"
+			minlength : "Your Mac Address is invalid"
+				}
 		},
 		submitHandler : function(form) {
 			var id = $('#board_room').val();
@@ -1016,10 +1018,36 @@ $('input[name=roomname]').on('keypress', function (event) {
     }
 });
 $('input[name=boardmac]').on('keypress', function (event) {
-    var regex = new RegExp("^[a-zA-Z0-9-]+$");
+    var regex = new RegExp("^[a-zA-Z0-9]+$");
     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regex.test(key)) {
        event.preventDefault();
        return false;
     }
 });
+$('#board_mac').keyup(function() {
+    var foo = $(this).val().replace(/-/g, ""); // remove hyphens
+    // You may want to remove all non-digits here
+    // var foo = $(this).val().replace(/\D/g, "");
+
+    if (foo.length > 0) {
+        foo = format(foo, [2, 2, 2, 2, 2], "-");
+    }
+  
+    
+    $(this).val(foo);
+});
+
+function format(input, format, sep) {
+    var output = "";
+    var idx = 0;
+    for (var i = 0; i < format.length && idx < input.length; i++) {
+        output += input.substr(idx, format[i]);
+        if (idx + format[i] < input.length) output += sep;
+        idx += format[i];
+    }
+
+    output += input.substr(idx);
+
+    return output;
+}

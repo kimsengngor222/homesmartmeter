@@ -253,10 +253,10 @@ body {
     color: #003870;
     text-transform: capitalize; }
   .top_jumbotron .team_desc {
-    font-size: 1.2em;
+    font-size: 1.25em;
     font-weight: 800;
     font-family: 'Julius Sans One', sans-serif;
-    color: #3e3e3e; }
+    color: black; }
 
 .section_content {
   padding: 70px 0 30px 0; }
@@ -689,7 +689,23 @@ body {
 #boardlocation,#boardregion,#boardroom,#boardboard .error{
 	color: red;
 }
+div .input-item{
+	border-radius:10px;
+}
+
 #boardsubmit .error{
 	color:red;
 }
-  
+input[type=text],input[type=number],input[type=email]{
+	border-radius:10px; 
+}  
+.uk-form-controls{
+	border-radius:10px;
+}
+#event_location,#event_region,#event_room{
+	border-radius:5px;
+}
+
+#export_location,#export_region,#export_room,#board_location2,#board_region1,#board_location1,#board_location,#board_region,#board_room{
+	border-radius:10px;
+}

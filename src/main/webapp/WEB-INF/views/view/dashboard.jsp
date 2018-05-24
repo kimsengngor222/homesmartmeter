@@ -199,7 +199,7 @@
 									<label class="uk-form-label"><i class="fa fa-comments"
 										style="margin-right: 10px;"></i> Message <i class="gt-icon"></i>
 									</label>
-									<textarea placeholder="Type your message..."
+									<textarea placeholder="Type your message..." style="border-radius:10px"
 										class="uk-textarea uk-flex-1 uk-inline" rows="5" cols=""
 										id="messagee"></textarea>
 								</div>
@@ -534,7 +534,7 @@
 								<label class="uk-form-label uk-padding-small" for="board_room">
 									BoardMAC</label>
 								<div class="uk-form-controls">
-									<input type="text" name="boardmac" class="uk-input"
+									<input type="text" name="boardmac" class="uk-input" maxlength="17"
 										id="board_mac">
 								</div>
 							</div>
