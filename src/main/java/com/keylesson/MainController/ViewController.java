@@ -295,7 +295,6 @@ public class ViewController {
 			map.put("status", "200");
 			map.put("message", "Data found");
 			map.put("data", ret);
-			System.out.println("SSSSSSSSSSSSSSSS"+ret);
 
 		} else {
 			map.put("status", "404");

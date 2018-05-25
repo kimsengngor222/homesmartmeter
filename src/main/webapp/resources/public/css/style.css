@@ -531,7 +531,8 @@ body {
       display: block;
       font-size: 1.3em;
       color: #feeb64;
-      background: #002c57;
+      background: #544f4f;
+      border-radius:5px;
       -webkit-transition: all 0.2s ease-in-out;
       -moz-transition: all 0.2s ease-in-out;
       -ms-transition: all 0.2s ease-in-out; }

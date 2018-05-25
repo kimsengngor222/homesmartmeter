@@ -394,7 +394,6 @@ public class userDaoImpl implements usersDao {
 				map.put("over_usage_water", data.get(i).getOverUsageWater());
 				map.put("email", data.get(i).getEmail());
 				events.add(map);
-				System.out.println("asdasdasdsss"+events);
 			}
 			trns.commit();
 		} catch (RuntimeException e) {

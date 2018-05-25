@@ -17,7 +17,6 @@ if (!String.prototype.format) {
 	$("#dashboardMenu,#sourceMenu,#eventMenu,#exportMenu,#boardRegistration")
 			.click(function() {
 				var idli = $(this).attr("id");
-				console.log("Click",idli);
 				window.sessionStorage.setItem('id', idli);
 			});
 
@@ -117,6 +116,9 @@ if (!String.prototype.format) {
 	
 	/*$(window).on(
 			'load',*/
+	$(window).on('load',function(e){
+		loadDashBoard()
+	})
 	var loadDashBoard=function() {
 				$('.loading-spinner').addClass('active');
 				$.ajax({
@@ -126,15 +128,16 @@ if (!String.prototype.format) {
 					success : function(response) {
 						$('.loading-spinner').removeClass('active');
 						var data = response.data;
-						console.log(data);
-
+						var rendered_card = ""
 						for (var i = 0; i < data.length; i++) {
-							var rendered_card = dashboard_card_template.format(
+							rendered_card = rendered_card + dashboard_card_template.format(
 									data[i].region_name, data[i].power,
 									data[i].water);
 							//$('#dashboardDiv').append(rendered_card);
-							document.getElementById('dashboardDiv').innerHTML=rendered_card;
+							
+							
 						}
+						document.getElementById('dashboardDiv').innerHTML=rendered_card;
 						
 					},
 					error : function(error) {
@@ -158,7 +161,6 @@ if (!String.prototype.format) {
 							$('.accommodation_list').html('');
 							$('#regionDiv').html('');
 							var data = response.data;
-							console.log("Datatatata",data);
 							var uniqueRegion = {};
 
 							for (var i = 0; i < data.length; i++) {
@@ -233,11 +235,8 @@ if (!String.prototype.format) {
 				type : 'GET',
 				success : function(response) {
 					data = response.data;
-					console.log("dataaaa",data);
 					$('#eventListDiv').html("");
-					console.log("SSSS",data.length);
 					for (var i = 0; i < data.length; i++) {
-							console.log("A");
 						$('#eventListDiv').append(
 								event_card_template.format(data[i].roomName,
 										data[i].over_usage_power,
@@ -559,14 +558,14 @@ if (!String.prototype.format) {
 
 				},
 				success : function(response) {
-					console.log(response);
 					if (response.status === '200') {
 						swal({
 							title : "Successfully Registration",
 							icon : "success"
-						})/*.then(function() {
-							window.location.reload(true);
-						});*/
+						}).then(function() {
+							//window.location.reload(true);
+							getLocation();
+						});
 					} else {
 						swal(response.message, '', 'error');
 					}
@@ -609,7 +608,10 @@ if (!String.prototype.format) {
 				},
 				success : function(response) {
 					if (response.status === '200') {
-						swal('Successfully Registration', '', 'success');
+						swal('Successfully Registration', '', 'success').then(function() {
+							//window.location.reload(true);
+							getLocation();
+						});
 					} else {
 						swal(response.message, '', 'error');
 					}
@@ -651,7 +653,9 @@ if (!String.prototype.format) {
 				},
 				success : function(response) {
 					if (response.status === '200') {
-						swal('Successfully', '', 'success');
+						swal('Successfully Registration', '', 'success').then(function() {
+							getLocation();
+						});
 					} else {
 						swal(response.message, '', 'error');
 					}
@@ -959,12 +963,6 @@ $(function() {
 		maxDate : "Now",
 		dateFormat : "yy-mm-dd"
 	}).on("change", function() {
-		/*
-		 * var date = Date.parse($(this).val()); console.log('this is date: ',
-		 * date); if (date > Date.now()){
-		 * 
-		 * $(this).val(''); }
-		 */
 		to.datepicker("option", "minDate", getDate(this));
 	}), to = $("#export_until").datepicker({
 		closeText : "Close",
