@@ -6,7 +6,7 @@
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.password">root12345</property>
-		<property name="hibernate.connection.url">jdbc:mysql://159.65.14.5/spring_hsm</property>
+		<property name="hibernate.connection.url">jdbc:mysql://209.97.175.65/spring_hsm</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>      
         <property name="current_session_context_class">thread</property>

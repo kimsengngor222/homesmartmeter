@@ -9,10 +9,10 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class Publisher {
 
 	public static void main(String arg[]){
-		String topic = "home";
-        String content = "Helloooooooo";
+		String topic = "Home";
+        String content = "Home";
         int qos = 2;
-        String broker = "tcp://159.65.14.5:1883";
+        String broker = "tcp://hsm.vkirirom.com:1883";
         @SuppressWarnings("unused")
 		String clientId = "Home";
         MemoryPersistence persistence = new MemoryPersistence();
@@ -43,10 +43,10 @@ public class Publisher {
         }
 	}
 	public void sub( String mac){
-		String topic = "Home";
-        String content = "Helloooooooo";
+		String topic = "HomeSub";
+        String content = "HomeSub";
         int qos = 2;
-        String broker = "tcp://smarthomemeter.me:1883";
+        String broker = "tcp://hsm.vkirirom.com:1883";
         @SuppressWarnings("unused")
 		String clientId = "Home";
         MemoryPersistence persistence = new MemoryPersistence();
@@ -60,7 +60,7 @@ public class Publisher {
             sampleClient.connect(connOpts);
             System.out.println("Connected");
             System.out.println("Publishing message: " + content);
-            MqttMessage message = new MqttMessage(content.getBytes());
+            MqttMessage message = new MqttMessage(mac.getBytes());  
             message.setQos(qos);
             sampleClient.publish(topic, message);
             System.out.println("Message published");

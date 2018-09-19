@@ -216,6 +216,7 @@ public class userDaoImpl implements usersDao {
 
 			Query query = session.createQuery(queryString);
 
+
 			room = query.list();
 			for (int i = 0; i < room.size(); i++) {
 				Map<String, Object> map = new HashMap<String, Object>();
@@ -239,6 +240,85 @@ public class userDaoImpl implements usersDao {
 		}
 		return rooms;
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> getEventRoomName(String id) {
+		List<Room> room = new ArrayList<Room>();
+		List<Map<String, Object>> rooms = new ArrayList<Map<String, Object>>();
+		
+		Transaction trns = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		try {
+			trns = session.beginTransaction();
+			String queryString = "from Room where ID = " + id;
+			
+
+			Query query = session.createQuery(queryString);
+
+			room = query.list();
+			for (int i = 0; i < room.size(); i++) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("id", room.get(i).getID());
+				map.put("name", room.get(i).getName());
+				rooms.add(map);
+			}
+
+			trns.commit();
+		} catch (RuntimeException e) {
+			if (trns != null) {
+				trns.rollback();
+			
+			}
+			LOGGER.log(Level.SEVERE, "Exception occured", e);
+
+		} finally {
+
+			session.flush();
+			session.close();
+		}
+		return rooms;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> getEventRoomID(String id) {
+		List<Room> room = new ArrayList<Room>();
+		List<Map<String, Object>> rooms = new ArrayList<Map<String, Object>>();
+		System.out.println("AAAAAAAAAAAAAAAAAAAA"+id);
+		Transaction trns = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		try {
+			trns = session.beginTransaction();
+			String queryString = "from Room where name = " + id;
+
+			Query query = session.createQuery(queryString);
+			System.out.println("SSSSSSSSSSSSSSSSSS"+room.size());
+			room = query.list();
+			
+			for (int i = 0; i < room.size(); i++) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("id", room.get(i).getID());
+				map.put("name", room.get(i).getName());
+				rooms.add(map);
+			}
+
+			trns.commit();
+		} catch (RuntimeException e) {
+			if (trns != null) {
+				trns.rollback();
+			
+			}
+			LOGGER.log(Level.SEVERE, "Exception occured", e);
+
+		} finally {
+
+			session.flush();
+			session.close();
+		}
+		return rooms;
+	}
+
 
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getSingleRoom(int id) {

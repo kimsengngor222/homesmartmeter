@@ -29,7 +29,7 @@ public class Subcriber implements MqttCallback {
 	private static final Logger LOGGER = Logger.getLogger(userDaoImpl.class
 			.getName());
 
-	private static final String brokerUrl = "tcp://159.65.14.5:1883";
+	private static final String brokerUrl = "tcp://hsm.vkirirom.com:1883";
 
 	@SuppressWarnings("unused")
 	private static final String clientId = "Home";
@@ -50,21 +50,15 @@ public class Subcriber implements MqttCallback {
 					MqttClient.generateClientId(), persistence);
 			MqttConnectOptions connOpts = new MqttConnectOptions();
 			connOpts.setCleanSession(true);
-
 			System.out.println("checking");
-
 			System.out.println("Mqtt Connecting to broker: " + brokerUrl);
 			sampleClient.connect(connOpts);
 			System.out.println("Mqtt Connected");
-
 			sampleClient.setCallback(this);
 			sampleClient.subscribe(topic);
-
 			System.out.println("Subscribed");
 			System.out.println("Listening");
-
 		} catch (MqttException me) {
-
 			System.out.println("Mqtt reason " + me.getReasonCode());
 			System.out.println("Mqtt msg " + me.getMessage());
 			System.out.println("Mqtt loc " + me.getLocalizedMessage());
@@ -89,7 +83,6 @@ public class Subcriber implements MqttCallback {
 		String MAC = receivemessage[0];
 		String Power = receivemessage[1];
 		String Water = receivemessage[2];
-
 		System.out.println("MAC: " + MAC);
 		System.out.println("Power: " + Power);
 		System.out.println("Water: " + Water + "\n");
@@ -115,7 +108,6 @@ public class Subcriber implements MqttCallback {
 			String hql = "from Daily_Usage where room_ID="
 					+ new Subcriber().getRoomIdByMAC(MAC)
 					+ " AND DATE(dmy) = '" + date + "'";
-
 			System.out.println(date);
 			Query query = session.createQuery(hql);
 
@@ -153,7 +145,7 @@ public class Subcriber implements MqttCallback {
 			session.flush();
 			session.close();
 		}
-
+		
 	}
 
 	public int getRoomIdByMAC(String MAC) {

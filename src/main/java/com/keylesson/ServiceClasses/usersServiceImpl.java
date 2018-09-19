@@ -39,6 +39,12 @@ public class usersServiceImpl implements usersService{
 	public List<Map<String, Object>> getRoom(String id){
 		return usersDao1.getRoom(id);
 	}
+	public List<Map<String, Object>> getEventRoomName(String id){
+		return usersDao1.getEventRoomName(id);
+	}
+	public List<Map<String, Object>> getEventRoomID(String id){
+		return usersDao1.getEventRoomID(id);
+	}
 	
 	public List<Map<String, Object>> getSingleRoom(int id){
 		return usersDao1.getSingleRoom(id);

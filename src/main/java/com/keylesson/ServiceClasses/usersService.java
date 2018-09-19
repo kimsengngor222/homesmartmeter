@@ -19,6 +19,8 @@ public interface usersService {
 	public List<Map<String,Object>> getAllLocation();
 	public List<Map<String, Object>> getRegion(String id);
 	public List<Map<String, Object>> getRoom(String id);
+	public List<Map<String, Object>> getEventRoomName(String id);
+	public List<Map<String, Object>> getEventRoomID(String id);
 	public List<Map<String, Object>> getSingleRoom(int i);
 	public int getEvent(event event);
 	public boolean getUpdation(update update);

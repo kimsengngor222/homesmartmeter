@@ -709,6 +709,9 @@ input[type=text],input[type=number],input[type=email]{
 	border-radius:5px;
 }
 
-#export_location,#export_region,#export_room,#board_location2,#board_region1,#board_location1,#board_location,#board_region,#board_room{
+#export_location,#export_region,#export_room,#export_roomName,#board_location2,#board_region1,#board_location1,#board_location,#board_region,#board_room{
 	border-radius:10px;
+}
+#export_form{
+	text-align:center;
 }

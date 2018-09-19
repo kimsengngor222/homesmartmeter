@@ -113,9 +113,7 @@ if (!String.prototype.format) {
 			+ '{3}' + '"> </span>' + '</div>' + '</form>' + '</div>' + '</div>';
 
 	var region_div_template = '<div class="card-box__outter uk-flex uk-flex-wrap uk-flex-wrap-around" id="{0}"></div>';
-	
-	/*$(window).on(
-			'load',*/
+
 	$(window).on('load',function(e){
 		loadDashBoard()
 	})
@@ -131,8 +129,8 @@ if (!String.prototype.format) {
 						var rendered_card = ""
 						for (var i = 0; i < data.length; i++) {
 							rendered_card = rendered_card + dashboard_card_template.format(
-									data[i].region_name, data[i].power,
-									data[i].water);
+									data[i].region_name, Math.round(data[i].power * 1000)/1000,
+									Math.round(data[i].water * 1000)/1000);
 							//$('#dashboardDiv').append(rendered_card);
 							
 							
@@ -162,10 +160,13 @@ if (!String.prototype.format) {
 							$('#regionDiv').html('');
 							var data = response.data;
 							var uniqueRegion = {};
+					
+							
 
 							for (var i = 0; i < data.length; i++) {
-								var region_id = data[i].region_id, region_name = data[i].region_name, room = data[i].room_name, power = data[i].power, water = data[i].water;
+								var region_id = data[i].region_id, region_name = data[i].region_name, room = data[i].room_name, power = Math.round(data[i].power * 1000)/1000, water = Math.round(data[i].water * 1000)/1000;
 								var regionDivID = "region" + region_id;
+								
 								var regionLink = '<li><a href="#">'
 										+ region_name + '</a></li>';
 								if (!uniqueRegion.hasOwnProperty(region_id)) {
@@ -199,7 +200,6 @@ if (!String.prototype.format) {
 				type : 'POST',
 				success : function(response) {
 					data = response.data;
-
 					var selected_val;
 					$('.select_location').html('');
 					var option_template = '<option value="{0}">{1}</option>';
@@ -294,9 +294,10 @@ if (!String.prototype.format) {
 									success : function(response) {
 										var data = response.data;
 										var selected_val;
-
+									
 										$('.select_region').html('');
 										$('.select_room').html('');
+									/*	$('.select_name').html('');*/
 										var option_template = '<option value="{0}">{1}</option>';
 										for (i = 0; i < data.length; i++) {
 											$('.select_region').append(
@@ -329,19 +330,83 @@ if (!String.prototype.format) {
 									},
 									success : function(response) {
 										data = response.data;
-
 										$('.select_room').html('');
+									/*	$('.select_name').html('');*/
 										var option_template = '<option value="{0}">{1}</option>';
-										for (i = 0; i < response.data.length; i++) {
+										for (i = 0; i < data.length; i++) {
 											$('.select_room').append(
 													option_template.format(
 															data[i].id,
 															data[i].id));
+											/*$('.select_name').append(
+													option_template.format(
+															data[i].name,
+															data[i].name));*/
 										}
 									}
 								});
 					});
+	$('.select_room')
+	.on(
+			'change',
+			function(e) {
+				var room_id = $(this).val();
+				$
+						.ajax({
+							url : 'exportroomname',
+							tranditional : true,
+							type : 'GET',
+							data : {
+								"id" : room_id
+							},
+							success : function(response) {
+								data = response.data;
+						/*	$('.select_name').html('');*/
+								var option_template = '<option value="{0}">{1}</option>';
+								for (i = 0; i < data.length; i++) {
+									$('.select_name').append(
+											option_template.format(
+													data[i].name,
+													data[i].name));
+									
+									
+								}
+							}
+						});
+			});
+	$('.select_name')
+	.on(
+			'change',
+			function(e) {
+				var room_name = $(this).val();
+				
+				$
+						.ajax({
+							url : 'exportroomid',
+							tranditional : true,
+							type : 'GET',
+							data : {
+								"id" : room_name
+							},
+							success : function(response) {
+								data = response.data;
+								var option_template = '<option value="{0}">{1}</option>';
+								$('.select_room').html('');
+								for (i = 0; i < data.length; i++) {
+									$('.select_room').append(
+											option_template.format(
+													data[i].id,
+													data[i].id));
+									
+									
+								}
 
+								
+
+							}
+						});
+			});
+				
 	$('#export_form').on(
 			'submit',
 			function(e) {
@@ -498,7 +563,7 @@ if (!String.prototype.format) {
 
 												swal(
 														{
-															title : "Successfully Registration",
+															title : "Successfully Created",
 															icon : "success"
 														})
 														.then(
@@ -1035,7 +1100,6 @@ $('#board_mac').keyup(function() {
         foo = format(foo, [2, 2, 2, 2, 2], "-");
     }
   
-    
     $(this).val(foo);
 });
 
@@ -1052,3 +1116,8 @@ function format(input, format, sep) {
 
     return output;
 }
+
+/*
+$('#board_mac').keyup(function(){
+    $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+});*/

@@ -29,4 +29,6 @@ public interface usersDao {
 	public boolean getUpdation(update update);
 	public boolean getDeletion(delete delete);
 	public List<Map<String, Object>> getSingleRoom(int id);
+	public List<Map<String, Object>> getEventRoomName(String id);
+	public List<Map<String, Object>> getEventRoomID(String id);
 }

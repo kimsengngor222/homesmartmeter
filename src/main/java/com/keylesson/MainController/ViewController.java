@@ -109,7 +109,7 @@ public class ViewController {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 
 		List<Map<String, Object>> list = usersService1.getRoom(id);
-
+		
 		if (list != null) {
 			map.put("status", "200");
 			map.put("message", "Data found");
@@ -122,6 +122,43 @@ public class ViewController {
 
 		return map;
 	}
+	@RequestMapping(value = "/exportroomname", method = RequestMethod.GET)
+	public @ResponseBody Map<Object, Object> getEventRoomName(String id) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		List<Map<String, Object>> list = usersService1.getEventRoomName(id);
+		if (list != null) {
+			map.put("status", "200");
+			map.put("message", "Data found");
+			map.put("data", list);
+
+		} else {
+			map.put("status", "404");
+			map.put("message", "Data not found");
+		}
+
+		return map;
+	}
+
+	@RequestMapping(value = "/exportroomid", method = RequestMethod.GET)
+	public @ResponseBody Map<Object, Object> getEventRoomID(String id) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+
+		List<Map<String, Object>> list = usersService1.getEventRoomID(id);
+		
+		
+		if (list != null) {
+			map.put("status", "200");
+			map.put("message", "Data found");
+			map.put("data", list);
+
+		} else {
+			map.put("status", "404");
+			map.put("message", "Data not found");
+		}
+
+		return map;
+	}
+
 
 	@RequestMapping(value = "/exportoutput", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> getReport(String id,
