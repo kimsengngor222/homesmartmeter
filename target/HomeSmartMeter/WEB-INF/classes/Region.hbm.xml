@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.keylesson.EntityClasses.Region" table="region"
+		dynamic-update="true">
+		<id name="ID" type="int">
+			<column name="ID" />
+		</id>
+
+		<many-to-one name="location" class="com.keylesson.EntityClasses.Location"
+			fetch="select">
+			<column name="location_ID" />
+		</many-to-one>
+		
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+
+		<property name="description" type="string">
+			<column name="description" />
+		</property>
+
+		<property name="createdAt" type="timestamp">
+			<column name="created_at" />
+
+		</property>
+
+		<property name="updatedAt" type="timestamp">
+			<column name="updated_at" />
+		</property>
+
+		<set name="room" table="room" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="ID" />
+			</key>
+			<one-to-many class="com.keylesson.EntityClasses.Room" />
+		</set>
+
+	</class>
+
+</hibernate-mapping>

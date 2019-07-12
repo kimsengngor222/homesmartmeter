@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.keylesson.EntityClasses.Report" table="report"
+		dynamic-update="true">
+		<id name="ID" type="int">
+			<column name="ID" />
+		</id>
+		<property name="cost" type="int">
+			<column name="cost" />
+		</property>
+
+		<property name="water" type="float">
+			<column name="water" />
+		</property>
+
+		<property name="power" type="float">
+			<column name="power" />
+		</property>
+
+		<property name="date" type="date">
+			<column name="date" />
+		</property>
+
+		<property name="createdAt" type="timestamp">
+			<column name="created_at" />
+		</property>
+
+		<property name="updatedAt" type="timestamp">
+			<column name="updated_at" />
+		</property>
+
+		<many-to-one name="room" class="com.keylesson.EntityClasses.Room"
+			fetch="select">
+			<column name="room_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.keylesson.EntityClasses.Room" table="room"
+		dynamic-update="true">
+		<id name="ID" type="int">
+			<column name="ID" />
+		</id>
+
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+
+		<property name="type" type="string">
+			<column name="type" />
+		</property>
+
+		<property name="createdAt" type="timestamp">
+			<column name="created_at" />
+		</property>
+
+		<property name="updatedAt" type="timestamp">
+			<column name="updated_at" />
+		</property>
+
+		<many-to-one name="user_registration"
+			class="com.keylesson.EntityClasses.User_Registration" fetch="select">
+			<column name="user_ID" />
+		</many-to-one>
+
+		<many-to-one name="region" class="com.keylesson.EntityClasses.Region"
+			fetch="select">
+			<column name="region_ID" />
+		</many-to-one>
+
+		<set name="board" inverse="true" cascade="all" lazy="false" fetch="select">
+			<key>
+				<column name="ID" />
+			</key>
+			<one-to-many class="com.keylesson.EntityClasses.Board" />
+		</set>
+
+		<set name="data" inverse="true" cascade="all" lazy="false" fetch="select">
+			<key>
+				<column name="ID" />
+			</key>
+			<one-to-many class="com.keylesson.EntityClasses.Data" />
+		</set>
+
+		<set name="report" inverse="true" cascade="all" lazy="false"
+			fetch="select">
+			<key>
+				<column name="ID" />
+			</key>
+			<one-to-many class="com.keylesson.EntityClasses.Report" />
+		</set>
+
+	</class>
+</hibernate-mapping>

@@ -397,7 +397,7 @@ public class userDaoImpl implements usersDao {
 			if (trns != null) {
 				trns.rollback();
 			}
-			LOGGER.log(Level.SEVERE, "Exception occured", e);
+		LOGGER.log(Level.SEVERE, "Exception occured", e);
 
 		} finally {
 

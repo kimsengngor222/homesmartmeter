@@ -1,0 +1,361 @@
+/*!
+ * Start Bootstrap - SB Admin (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Global Styles */
+.setting-icon{
+	color:#E65100;
+	
+}
+.color-white{
+	text-color:#fff;
+}
+@media(max-width:768px){
+	.row {
+		margin-top:15px;
+		padding-top:10px;
+		padding-left:10px;
+		padding-right:10px;
+	    margin-right: -15px;
+	    margin-left: -15px;
+	}
+
+}
+@media (max-width: 767px){
+	.icon-size{
+		font-size:1em;
+	}
+}
+@media (min-width: 767px){
+	.icon-size{
+		font-size:3em;
+	}
+}
+#margin-body{
+	margin-top:30px;
+	margin-left:5px;
+	margin-right:5px;
+}
+body {
+    background-color: #fff;
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+}
+
+.huge {
+    font-size: 50px;
+    line-height: normal;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 125px;
+        padding-top:10px;
+    }
+
+    #page-wrapper {
+        padding: 10px;
+    }
+}
+
+/* Top Navigation */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #fffff;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #E65100;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.message-footer {
+    margin: 5px 0;
+}
+
+ul.alert-dropdown {
+    width: 200px;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 90px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #c72e45;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 90px;
+        color:#fff;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #fff !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+/* Flot Chart Containers */
+
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom Colored Panels */
+
+.huge {
+    font-size: 40px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green > .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green > a {
+    color: #5cb85c;
+}
+
+.panel-green > a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red > .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red > a {
+    color: #d9534f;
+}
+
+.panel-red > a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow > .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow > a {
+    color: #f0ad4e;
+}
+
+.panel-yellow > a:hover {
+    color: #df8a13;
+}
+
+/* Card Style */
+
+.card-wrapper {
+	margin: 10px -10px;
+}
+
+.card {
+	width: 24%;
+	margin: 5px 5px;
+	float: left;
+	padding: 10px 10px;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(163,128,163,1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(163,128,163,1);
+	box-shadow: 0px 2px 5px 0px rgba(163,128,163,1);
+}
+
+.card-data {
+	margin-top: 20px;
+}
+
+.card-data > h4 {
+	padding: 10px 5px;
+}
+
+h4 > span{
+	padding: 5px 10px;
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(145,143,145,1);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(145,143,145,1);
+	box-shadow: inset 0px 0px 5px 0px rgba(145,143,145,1);
+}
+
+
+/* Edit Navbar */
+
+.no-radius{
+	border-radius: 0px !important;
+}
+
+.navbar-edit {
+	height: 100px;
+	width: 100%;
+	position: 100%;
+}
+
+.navbar-brand {
+	padding: 10px 15px;
+	max-width:85%;
+}
+
+.navbar-center {
+	margin: 0 auto;
+	position: relative;
+}
+
+li.navbar-brand {
+	list-style: none;
+}
+
+.nav.nav-center {
+    margin:0;
+    float:none;
+}
+
+.navbar-center.col-sm-6{
+	margin-top: 35px;
+    text-align: center;
+    color:rgba(255, 255, 255, 0.99);
+}
+
+.brand.text-center:hover {
+	text-decoration: none;
+}
+
+.navbar-inner{
+    text-align:center;
+}
+
+.nav-right{
+	float: right !important;
+	margin-right: 25px;
+}
+
+.navbar-left {
+	margin-left: 20px;
+}
+
+.avatar {
+	float: right;
+	width: 75px;
+	height: 75px;
+	margin-top: 12px;
+	border-radius: 50%;
+	background-color: #fff;
+}
+
+.brand {
+	font-size: 30px;
+}
+
+
+
+
+
+
+
+

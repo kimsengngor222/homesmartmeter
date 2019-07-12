@@ -1,0 +1,119 @@
+
+.section_menu_bar{
+	position: relative;
+	width: 100%;
+	background: #f0f5f9;
+}
+
+.section_menu_nav{
+	padding: 0;
+	margin: 0 auto;
+	position: relative;
+	@include clearfix();
+
+	li{
+		position: relative;
+		display: inline-block;
+		float: left;
+
+		&::after{
+			position: absolute;
+			content: "";
+			display: block;
+			width: 0;
+			height: 5px;
+			bottom: 0;
+			background: darken($light_blue, 22%);
+			@include prefixer(transition, width 0.3s ease-out, webkit moz ms);
+			@include prefixer(transform-origin, 0% 0%, webkit moz ms);
+
+		}
+
+		&.uk-active::after{
+			width: 100%;
+		}
+	}
+
+	a{
+		text-decoration: none;
+		display: block;
+		color: darken($light_blue, 22%);
+		/*font-family: 'Nunito', sans-serif;*/
+    	/*font-family: 'Julius Sans One', sans-serif;*/
+    	font-family: 'Ubuntu', sans-serif;
+    	font-size: 1.4em;
+    	font-weight: 500;
+    	padding: 15px 60px;
+	}
+}
+
+.section_content{
+	position: relative;
+	width: 100%;
+	@include clearfix();
+}
+
+.loading-spinner{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: "";
+	display: none;
+	visibility: hidden;
+	z-index: 10000;
+	background: rgba(0,0,0,0.7);
+
+	&.active{
+		display: block;
+		visibility: visible;
+	}
+}
+
+#sidebarTrigger{
+	position: absolute;
+	top: 35px;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	display: block;
+	visibility: hidden;
+	cursor: pointer;
+	@include prefixer(transform, translateX(-200px), webkit moz ms);
+	@include prefixer(transition, transform 0.2s cubic-bezier(.93,.32,.22,.76), webkit moz ms);
+	svg{
+		position: relative;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.clear_cache_wrapper{
+	position: relative;
+	width: 100%;
+	padding: 30px 10px 0 10px;
+	text-align: right;
+}
+
+#clearCacheSource{
+	background: #df405a;
+	color: #fff;
+	border-radius: 40px;
+	font-weight: 800;
+	padding: 8px 25px;
+	line-height: 1;
+	border-width: 3px;
+	border-style: solid;
+	font-family: 'Ubuntu', sans-serif;
+	border-bottom-color: #C65146;
+	border-top-color: #df405a;
+	border-left-color: #df405a;
+	border-right-color: #df405a;
+}
+
+
+
+
+
+

@@ -29,7 +29,7 @@ public class Subcriber implements MqttCallback {
 	private static final Logger LOGGER = Logger.getLogger(userDaoImpl.class
 			.getName());
 
-	private static final String brokerUrl = "tcp://hsm.vkirirom.com:1883";
+	private static final String brokerUrl = "tcp://167.99.71.72:1883";
 
 	@SuppressWarnings("unused")
 	private static final String clientId = "Home";
