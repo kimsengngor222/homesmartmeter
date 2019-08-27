@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
+import main.java.com.keylesson.HibernateUtil.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -19,7 +20,6 @@ import com.keylesson.EntityClasses.Location;
 import com.keylesson.EntityClasses.Region;
 import com.keylesson.EntityClasses.Room;
 import com.keylesson.EntityClasses.User_Registration;
-import com.keylesson.HibernateUtil.HibernateUtil;
 import com.keylesson.ModelClasses.boardreg;
 import com.keylesson.ModelClasses.delete;
 import com.keylesson.ModelClasses.update;

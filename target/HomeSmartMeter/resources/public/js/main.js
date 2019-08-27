@@ -410,9 +410,33 @@ if (!String.prototype.format) {
 				var error_until = undefined;
 				var error_both = undefined;
 
-				var row_template = '<tr>' + '<td>{0}</td>' + '<td>{1}</td>'
-						+ '<td>{2} <span>kwh</span></td>'
-						+ '<td>{3} <span>m<sup>3</sup></span></td>' + '</tr>';
+				var row_template =
+					'<tr style="background:#F8F8F8">' +
+                    '<th></th>' +
+                    '<th style="color:#00488F;font-size:25px;text-align: center"><b><span>Room</span>  {1}</b></th>' +
+                    '<th></th>' +
+                    '</tr>'+
+					'<tr style="background:#643890;text-align: center">' +
+					'<th style="text-align: center;color:white">Services</th>' +
+					'<th style="color:white;text-align: center">Units</th>' +
+					'<th style="color:white;text-align: center">Cost</th>' +
+					'</tr>'+
+					'<tr style="background:#FFFFFF">' +
+					'<th style="text-align: center;color:black">Power</th>' +
+					'<th style="text-align: center;color:black">{2} <span>kwh</span></th>' +
+					'<th style="text-align: center;color:black">{4} <span>R</span></th>' +
+					'</tr>'+
+					'<tr style="background:#FFFFFF">' +
+					'<th style="text-align: center;color:black">Water</th>' +
+					'<th style="text-align: center;color:black">{3} <span>m<sup>3</sup></span></th>' +
+					'<th style="text-align: center;color:black">{5} <span>R</span></th>' +
+					'</tr>' +
+                    '<tr style="background:#F8F8F8">' +
+                    '<th></th>' +
+                    '<th></th>' +
+                    '<th style="background:#643890; color:white;text-align: center">{6} <span>R</span></th>' +
+                    '</tr>'
+				;
 				if (export_from === "") {
 					error_from = "From Date is required!";
 				}
@@ -450,7 +474,8 @@ if (!String.prototype.format) {
 							$('#export_table').html('');
 							$('#export_table').append(
 									row_template.format(data.id, data.name,
-											data.power, data.water));
+											data.power, data.water,data.power*1500,data.water*1000,data.power*1500+data.water*1000));
+							console.log(data.power,"Power"+ "      "+data.water,"Water");
 							$("#roomExportBtn").removeClass("uk-hidden");
 						},
 						error : function(error) {

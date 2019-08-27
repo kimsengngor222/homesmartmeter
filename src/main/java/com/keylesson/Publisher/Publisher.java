@@ -12,7 +12,7 @@ public class Publisher {
 		String topic = "Home";
         String content = "Home";
         int qos = 2;
-        String broker = "tcp://167.99.71.72:1883";
+        String broker = "tcp://192.168.7.245:1883";
         @SuppressWarnings("unused")
 		String clientId = "Home";
         MemoryPersistence persistence = new MemoryPersistence();
@@ -46,7 +46,7 @@ public class Publisher {
 		String topic = "Home";
         String content = "HomeSub";
         int qos = 2;
-        String broker = "tcp://167.99.71.72:1883";
+        String broker = "tcp://192.168.7.245:1883";
         @SuppressWarnings("unused")
 		String clientId = "Home";
         MemoryPersistence persistence = new MemoryPersistence();

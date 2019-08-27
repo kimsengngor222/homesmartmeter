@@ -898,6 +898,7 @@ a.uk-link-reset:hover,
 .uk-table-divider > :not(:first-child) > tr,
 .uk-table-divider > :first-child > tr:not(:first-child) {
   border-top: 1px solid #e5e5e5;
+  border-bottom:0px;
 }
 /*
  * Striped
@@ -905,7 +906,7 @@ a.uk-link-reset:hover,
 .uk-table-striped > tr:nth-of-type(odd),
 .uk-table-striped tbody tr:nth-of-type(odd) {
   background: #f8f8f8;
-  border-top: 1px solid #e5e5e5;
+  border-top: 0px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
 /*
@@ -12134,6 +12135,7 @@ td.uk-text-break {
   h3 {
     page-break-after: avoid;
   }
+
 
 }
 

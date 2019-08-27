@@ -18,11 +18,13 @@ import com.keylesson.ModelClasses.delete;
 import com.keylesson.ModelClasses.update;
 import com.keylesson.ModelClasses.event;
 import com.keylesson.ServiceClasses.usersService;
+import com.keylesson.ServiceClasses.usersService1;
 
 @Controller
 public class ViewController {
 	@Autowired
-	usersService usersService1;
+			//change userService1 to userService for hosting
+	usersService1 usersService1;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView init() {

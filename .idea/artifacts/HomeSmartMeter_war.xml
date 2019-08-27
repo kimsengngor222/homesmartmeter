@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HomeSmartMeter:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>HomeSmartMeter</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="HomeSmartMeter.war">
+      <element id="artifact" artifact-name="HomeSmartMeter:war exploded" />
+    </root>
+  </artifact>
+</component>

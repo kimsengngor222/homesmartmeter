@@ -328,7 +328,8 @@
 
 						<div
 							class="input-item uk-flex uk-flex-middle uk-flex-column-reverse">
-							<button class="uk-button uk-button-medium uk-button-default"
+							<button style="background:#0F7AE5;color:white"
+									class="uk-button uk-button-medium uk-button-default"
 								type="submit" value="Submit">Submit</button>
 						</div>
 						
@@ -341,14 +342,7 @@
 						<table
 							class="uk-table uk-table-hover uk-table-striped uk-table-justify uk-table-divider"
 							id="room_export_table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Name</th>
-									<th>Power</th>
-									<th>Water</th>
-								</tr>
-							</thead>
+
 							<tbody id="export_table">
 
 							</tbody>

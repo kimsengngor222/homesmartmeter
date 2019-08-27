@@ -22,14 +22,14 @@ import com.keylesson.DaoClasses.userDaoImpl;
 import com.keylesson.EntityClasses.Daily_Usage;
 import com.keylesson.EntityClasses.Board;
 import com.keylesson.EntityClasses.Room;
-import com.keylesson.HibernateUtil.HibernateUtil;
+import main.java.com.keylesson.HibernateUtil.HibernateUtil;
 import com.keylesson.Publisher.Publisher;
 
 public class Subcriber implements MqttCallback {
 	private static final Logger LOGGER = Logger.getLogger(userDaoImpl.class
 			.getName());
 
-	private static final String brokerUrl = "tcp://167.99.71.72:1883";
+	private static final String brokerUrl = "tcp://192.168.7.245:1883";
 
 	@SuppressWarnings("unused")
 	private static final String clientId = "Home";
