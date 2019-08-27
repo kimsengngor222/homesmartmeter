@@ -24,7 +24,7 @@ import com.keylesson.ServiceClasses.usersService1;
 public class ViewController {
 	@Autowired
 			//change userService1 to userService for hosting
-	usersService1 usersService1;
+	usersService usersService1;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView init() {

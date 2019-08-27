@@ -474,8 +474,16 @@ if (!String.prototype.format) {
 							$('#export_table').html('');
 							$('#export_table').append(
 									row_template.format(data.id, data.name,
-											data.power, data.water,data.power*1500,data.water*1000,data.power*1500+data.water*1000));
-							console.log(data.power,"Power"+ "      "+data.water,"Water");
+											Math.round(data.power * 1000)/1000, Math.round(data.water * 1000)/1000,(Math.round(data.power*1500 * 1000)/1000),
+										Math.round(data.water*1000 *1000)/1000,Math.round((data.power*1500+data.water*1000) *1000)/1000));
+							console.log(data.power+"Power"+"  "+ data.water + "Water");
+							console.log(Math.round(data.power * 1000)/1000 + " Round Power");
+							console.log(Math.round(data.water * 1000)/1000 + "Round Water");
+							console.log(Math.round(data.power*1500 * 1000)/1000 + "Round Cost Power");
+							console.log(Math.round(data.water*1000 *1000)/1000 + "Round Cost Water");
+							console.log(Math.round((data.power*1500+data.water*1000) *1000)/1000+ "Round Total Cost");
+							console.log(Math.round((data.power) * 1000)/1000 + " Round Power");
+							console.log(Math.round((data.power*1500) * 1000)/1000 + "Round Cost Power");
 							$("#roomExportBtn").removeClass("uk-hidden");
 						},
 						error : function(error) {
