@@ -424,17 +424,17 @@ if (!String.prototype.format) {
 					'<tr style="background:#FFFFFF">' +
 					'<th style="text-align: center;color:black">Power</th>' +
 					'<th style="text-align: center;color:black">{2} <span>kwh</span></th>' +
-					'<th style="text-align: center;color:black">{4} <span>R</span></th>' +
+					'<th style="text-align: center;color:black">{4} <span>$</span></th>' +
 					'</tr>'+
 					'<tr style="background:#FFFFFF">' +
 					'<th style="text-align: center;color:black">Water</th>' +
 					'<th style="text-align: center;color:black">{3} <span>m<sup>3</sup></span></th>' +
-					'<th style="text-align: center;color:black">{5} <span>R</span></th>' +
+					'<th style="text-align: center;color:black">{5} <span>$</span></th>' +
 					'</tr>' +
                     '<tr style="background:#F8F8F8">' +
                     '<th></th>' +
                     '<th></th>' +
-                    '<th style="background:#643890; color:white;text-align: center">{6} <span>R</span></th>' +
+                    '<th style="background:#643890; color:white;text-align: center">{6} <span>$</span></th>' +
                     '</tr>'
 				;
 				if (export_from === "") {
@@ -474,16 +474,16 @@ if (!String.prototype.format) {
 							$('#export_table').html('');
 							$('#export_table').append(
 									row_template.format(data.id, data.name,
-											Math.round(data.power * 1000)/1000, Math.round(data.water * 1000)/1000,(Math.round(data.power*1500 * 1000)/1000),
-										Math.round(data.water*1000 *1000)/1000,Math.round((data.power*1500+data.water*1000) *1000)/1000));
+											Math.round(data.power * 1000)/1000, Math.round(data.water * 1000)/1000,(Math.round(data.power*0.25 * 1000)/1000),
+										Math.round(data.water*0.375 *1000)/1000,Math.round((data.power*0.25+data.water*0.375) *1000)/1000));
 							console.log(data.power+"Power"+"  "+ data.water + "Water");
 							console.log(Math.round(data.power * 1000)/1000 + " Round Power");
 							console.log(Math.round(data.water * 1000)/1000 + "Round Water");
-							console.log(Math.round(data.power*1500 * 1000)/1000 + "Round Cost Power");
-							console.log(Math.round(data.water*1000 *1000)/1000 + "Round Cost Water");
-							console.log(Math.round((data.power*1500+data.water*1000) *1000)/1000+ "Round Total Cost");
+							console.log(Math.round(data.power*0.25 * 1000)/1000 + "Round Cost Power");
+							console.log(Math.round(data.water*0.375 *1000)/1000 + "Round Cost Water");
+							console.log(Math.round((data.power*0.25+data.water*0.375) *1000)/1000+ "Round Total Cost");
 							console.log(Math.round((data.power) * 1000)/1000 + " Round Power");
-							console.log(Math.round((data.power*1500) * 1000)/1000 + "Round Cost Power");
+							console.log(Math.round((data.power*0.25) * 1000)/1000 + "Round Cost Power");
 							$("#roomExportBtn").removeClass("uk-hidden");
 						},
 						error : function(error) {

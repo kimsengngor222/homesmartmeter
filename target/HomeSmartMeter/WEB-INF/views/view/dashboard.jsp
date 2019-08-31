@@ -328,9 +328,11 @@
 
 						<div
 							class="input-item uk-flex uk-flex-middle uk-flex-column-reverse">
+							<div class="submitbtn">
 							<button style="background:#0F7AE5;color:white"
 									class="uk-button uk-button-medium uk-button-default"
 								type="submit" value="Submit">Submit</button>
+							</div>
 						</div>
 						
 					</div>

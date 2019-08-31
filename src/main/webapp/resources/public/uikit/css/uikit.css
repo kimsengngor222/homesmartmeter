@@ -2257,7 +2257,18 @@ select.uk-form-width-xsmall {
     padding-left: 40px;
     padding-right: 40px;
   }
+
 }
+
+/*  submit btn */
+/*@media (min-width: 960px) {
+  .submitbtn {
+    margin: 0 auto;
+    display: none;
+  }
+}*/
+
+
 /*
  * Micro clearfix
  */
